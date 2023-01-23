@@ -187,14 +187,14 @@ run_breaking_news_roller();
 
 // require_once dirname(__FILE__).'/admin/classes/shortcode.php';
 
-// add_shortcode('NEWSSLIDER', 'printNewsSlider');
+// add_shortcode('NEWSROLLER', 'printNewsSlider');
 
 // function printNewsSlider($id){
 
 //     if(class_exists('printNewsSliderShortCode')){
 //         $shortcode = new printNewsSliderShortCode();
 //     }
-
-//     return $shortcode->print(2);
+	
+//     return $shortcode->print($id);
     
 // }

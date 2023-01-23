@@ -52,6 +52,19 @@ class Breaking_News_Roller_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		require BREAKING_NEWS_ROLLER . 'public/class-breaking-news-roller-shortcode.php';
+
+		add_shortcode('NEWSROLLER', array($this, 'printNewsSlider'));
+
+	}
+	function printNewsSlider($id){
+
+		if(class_exists('Breaking_News_Roller_ShortCode')){
+			$shortcode = new Breaking_News_Roller_ShortCode();
+		}
+		
+		return $shortcode->print($id);
+		
 	}
 
 	/**
