@@ -4,12 +4,16 @@ $bnr_admin = new Breaking_News_Ticker_Admin(PLUGIN_NAME, BREAKING_NEWS_TICKER_VE
 
 $tickers = $bnr_admin->get_tickers();
 
+$add_ticker = admin_url('admin.php?page=' . plugin_basename(__DIR__ ) . '/page-ticker-add.php');
+
+$edit_ticker = admin_url('admin.php?page=' . plugin_basename(__DIR__ ) . '/page-ticker-settings.php');
+
 ?>
 
 <div class="wrap">
     <h2>Breaking News Tickers</h2>
     <br>
-    <a id="btn_nuevo" class="button button-primary" href="?page=wp-breaking-news-slider%2Fadmin%2Fpage-template%2Fslider-add.php">Add New</a>
+    <a id="btn_nuevo" class="button button-primary" href="<?= $add_ticker ?>">Add New</a>
 
     <br>
     <br>
@@ -49,7 +53,7 @@ $tickers = $bnr_admin->get_tickers();
                                 </div>
                             </th>';
                 $html .= '<td class="title column-title has-row-actions column-primary page-title" data-colname="Title">' . $ticker['title'] . ' <div class="row-actions">
-                <span class="edit"><a href="javascript:void(0)" aria-label="Edit “Post #1”">Edit</a> | </span>
+                <span class="edit"><a href="'. $edit_ticker .'" aria-label="Edit “Post #1”">Edit</a> | </span>
                 <span class="trash"><a href="javascript:void(0)" class="submitdelete" aria-label="Move “Post #1” to the Trash">Trash</a></div></td>';
                 $html .= '<td class="title column-title has-row-actions column-primary page-title" data-colname="Title">' . get_userdata($ticker['author_id'])->user_login . '</td>';
                 $html .= '<td class="title column-title has-row-actions column-primary page-title" data-colname="Title">' . $ticker['shortcode'] . '</td>';

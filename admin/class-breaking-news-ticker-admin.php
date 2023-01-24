@@ -114,6 +114,27 @@ class Breaking_News_Ticker_Admin
 	}
 
 	/**
+	 * Get ticker news
+	 * 
+	 * @since 1.0.1
+	 */
+
+	public function get_ticker_and_news($id){
+
+		global $wpdb;
+
+		$query_get_ticker = 'SELECT * FROM ' . TICKERS_TABLE . ' WHERE ID = ' . $id;
+
+		$query_get_news = 'SELECT * FROM ' . NEWS_TABLE . ' WHERE ticker_id = ' . $id;
+
+		$ticker = $wpdb->get_results($query_get_ticker, ARRAY_A);
+
+		$news = $wpdb->get_results($query_get_news, ARRAY_A);
+
+		return [$ticker[0], $news[0]];
+	}
+
+	/**
 	 * Save new ticker
 	 * 
 	 * @since 1.0.0
