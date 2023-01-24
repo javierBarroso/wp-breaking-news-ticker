@@ -19,6 +19,8 @@
  * @package    Breaking_News_Ticker
  * @subpackage Breaking_News_Ticker/admin
  * @author     Javier Barroso <abby.javi.infox@gmail.com>
+ * 
+ * 
  */
 class Breaking_News_Ticker_Admin
 {

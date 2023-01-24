@@ -9,78 +9,76 @@ $tickers = $bnr_admin->get_tickers();
 <div class="wrap">
     <h2>Breaking News Tickers</h2>
     <br>
-    <a id="btn_nuevo" class="page-title-action" href="?page=wp-breaking-news-slider%2Fadmin%2Fpage-template%2Fslider-add.php">Add New</a>
+    <a id="btn_nuevo" class="button button-primary" href="?page=wp-breaking-news-slider%2Fadmin%2Fpage-template%2Fslider-add.php">Add New</a>
 
     <br>
-    <table>
+    <br>
+    <table class="wp-list-table widefat fixed striped posts">
         <thead>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Shortcode</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <tr>
+                <td id="cb" class="manage-column column-cb check-column">
+                    <label class="screen-reader-text" for="cb-select-all-1">Select All</label>
+                    <input id="cb-select-all-1" type="checkbox">
+                </td>
+                <th scope="col" id="title" class="manage-column column-title column-primary sortable desc">
+                    <span>Title</span>
+                </th>
+                <th scope="col" id="author" class="manage-column column-author">Author</th>
+                <th scope="col" id="shortcode" class="manage-column column-shortcode">Shortcode</th>
+                <th scope="col" id="date" class="manage-column column-date sortable asc">
+                    <a href="javascript:void(0)">
+                        <span>Date</span><span class="sorting-indicator"></span>
+                    </a>
+                </th>
+            </tr>
         </thead>
-        <tbody>
+        <tbody id="the-list">
             <?php
             $html = '';
             foreach ($tickers as $key => $ticker) {
 
-                $html .= '<tr>';
-                $html .= '<td>' . $ticker['title'] . '<td>';
-                $html .= '<td>' . get_userdata($ticker['author_id'])->user_login . '</td>';
-                $html .= '<td>' . $ticker['shortcode'] . '<td>';
-                $html .= '<td>' . $ticker['date'] . '<td>';
-                $html .= '<td><input type="button" value="Remove" class="remove-slider"><td>';
+                $html .= '<tr id="post-'.$key.'" class="iedit author-self level-0 post-1 type-post status-publish format-standard hentry category-Dummy category">';
+                $html .= '<th scope="row" class="check-column">
+                                <label class="screen-reader-text" for="cb-select-1">Select Post #1</label>
+                                <input id="cb-select-1" type="checkbox" name="post[]" value="1">
+                                <div class="locked-indicator">
+                                    <span class="locked-indicator-icon" aria-hidden="true"></span>
+                                    <span class="screen-reader-text">
+                                        “Post #'.$key.'” is locked
+                                    </span>
+                                </div>
+                            </th>';
+                $html .= '<td class="title column-title has-row-actions column-primary page-title" data-colname="Title">' . $ticker['title'] . ' <div class="row-actions">
+                <span class="edit"><a href="javascript:void(0)" aria-label="Edit “Post #1”">Edit</a> | </span>
+                <span class="trash"><a href="javascript:void(0)" class="submitdelete" aria-label="Move “Post #1” to the Trash">Trash</a></div></td>';
+                $html .= '<td class="title column-title has-row-actions column-primary page-title" data-colname="Title">' . get_userdata($ticker['author_id'])->user_login . '</td>';
+                $html .= '<td class="title column-title has-row-actions column-primary page-title" data-colname="Title">' . $ticker['shortcode'] . '</td>';
+                $html .= '<td>' . $ticker['date'] . '</td>';
                 $html .= '</tr>';
                 echo $html;
                 $html = '';
             }
             ?>
+            <tfoot>
+                <tr>
+                    <td id="cb" class="manage-column column-cb check-column">
+                        <label class="screen-reader-text" for="cb-select-all-1">Select All</label>
+                        <input id="cb-select-all-1" type="checkbox">
+                    </td>
+                    <th scope="col" id="title" class="manage-column column-title column-primary sortable desc">
+                        <span>Title</span>
+                    </th>
+                    <th scope="col" id="author" class="manage-column column-author">Author</th>
+                    <th scope="col" id="shortcode" class="manage-column column-shortcode">Shortcode</th>
+                    <th scope="col" id="date" class="manage-column column-date sortable asc">
+                        <a href="javascript:void(0)">
+                            <span>Date</span><span class="sorting-indicator"></span>
+                        </a>
+                    </th>
+                </tr>
+            </tfoot>
+        </tbody>
+    </table>
 
-
-
-            <!-- <div class="container">
-
-    <div class="box">
-        <div>
-            <h2>Hello World</h2>
-        </div>
-        <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-</div>
-</div>
-
-<style>
-    .container{
-perspective: 500px;
-width: fit-content;
-height: fit-content;
-    }
-    .container:hover>.box{
-        transform: rotate3d(0,1,0,180deg);
-        transition-duration: 3s;
-        transition-timing-function: ease-in-out;
-    }
-.box{
-    border: solid 2px red;
-    border-radius: 1rem;
-    transform-style: preserve-3d;
-    width: 200px;
-    height: 200px;
-    margin: auto;
-    transition-duration: 3s;
-    transition-timing-function: ease-in-out;
-    background-color: #524162;
-}
-
-.box div{
-    display: block;
-    color: white;
-transform: translate3d(0px,0px,100px);
-text-align: center;
-
-margin: 20%;
-}
-</style> -->
+    
 </div>
