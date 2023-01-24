@@ -20,11 +20,12 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Breaking_News_Roller
- * @subpackage Breaking_News_Roller/includes
+ * @package    Breaking_News_Ticker
+ * @subpackage Breaking_News_Ticker/includes
  * @author     Javier Barroso <abby.javi.infox@gmail.com>
  */
-class Breaking_News_Roller_i18n {
+class Breaking_News_Ticker_i18n
+{
 
 
 	/**
@@ -32,16 +33,13 @@ class Breaking_News_Roller_i18n {
 	 *
 	 * @since    1.0.0
 	 */
-	public function load_plugin_textdomain() {
+	public function load_plugin_textdomain()
+	{
 
 		load_plugin_textdomain(
 			'plugin-name',
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+			dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
 		);
-
 	}
-
-
-
 }

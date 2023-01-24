@@ -22,10 +22,10 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Breaking_News_Roller
+ * @package    Breaking_News_Ticker
  */
 
 // If uninstall not called from WordPress, then exit.
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+if (!defined('WP_UNINSTALL_PLUGIN')) {
 	exit;
 }

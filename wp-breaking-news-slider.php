@@ -10,10 +10,10 @@
  *
  * @link              https://wirenomads.com
  * @since             1.0.0
- * @package           Breaking_News_Roller
+ * @package           Breaking_News_Ticker
  *
  * @wordpress-plugin
- * Plugin Name:       Breaking News Roller
+ * Plugin Name:       Breaking News Ticker
  * Plugin URI:        https://wirenomads.com
  * Description:       Survey Maker plugin allows you to create unlimited surveys with unlimited sections and unlimited questions.
  * Version:           0.1.0
@@ -21,13 +21,13 @@
  * Author URI:        https://wirenomads.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       breaking-news-roller
+ * Text Domain:       breaking-news-ticker
  * Domain Path:       /languages
  */
 
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if (!defined('WPINC')) {
 	die;
 }
 
@@ -36,47 +36,49 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'BREAKING_NEWS_ROLLER_VERSION', '1.0.0' );
-define( 'PLUGIN_NAME', 'breaking_news_roller');
+define('BREAKING_NEWS_TICKER_VERSION', '1.0.0');
+define('PLUGIN_NAME', 'breaking_news_ticker');
 
 
-defined( 'ABSPATH' ) or die('Hey, Hands off this file!!!!');
+defined('ABSPATH') or die('Hey, Hands off this file!!!!');
 
 /* Define Constant */
-if( ! defined('BREAKING_NEWS_ROLLER')){
-    define( 'BREAKING_NEWS_ROLLER', plugin_dir_path( __FILE__ ));
+if (!defined('BREAKING_NEWS_TICKER')) {
+	define('BREAKING_NEWS_TICKER', plugin_dir_path(__FILE__));
 }
 global $wpdb;
-define('ROLLERS_TABLE', $wpdb -> prefix . 'breaking_news_roller');
-define('NEWS_TABLE', $wpdb -> prefix . 'breaking_news_roller_news');
+define('TICKERS_TABLE', $wpdb->prefix . 'breaking_news_ticker');
+define('NEWS_TABLE', $wpdb->prefix . 'breaking_news_ticker_news');
 
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-plugin-name-activator.php
  */
-function activate_breaking_news_roller() {
-	require_once BREAKING_NEWS_ROLLER . 'includes/class-breaking-news-roller-activator.php';
-	Breaking_News_Roller_Activator::activate();
+function activate_breaking_news_ticker()
+{
+	require_once BREAKING_NEWS_TICKER . 'includes/class-breaking-news-ticker-activator.php';
+	Breaking_News_Ticker_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-plugin-name-deactivator.php
  */
-function deactivate_breaking_news_roller() {
-	require_once BREAKING_NEWS_ROLLER . 'includes/class-breaking-news-roller-deactivator.php';
-	Breaking_News_Roller_Deactivator::deactivate();
+function deactivate_breaking_news_ticker()
+{
+	require_once BREAKING_NEWS_TICKER . 'includes/class-breaking-news-ticker-deactivator.php';
+	Breaking_News_Ticker_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_breaking_news_roller' );
-register_deactivation_hook( __FILE__, 'deactivate_breaking_news_roller' );
+register_activation_hook(__FILE__, 'activate_breaking_news_ticker');
+register_deactivation_hook(__FILE__, 'deactivate_breaking_news_ticker');
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require BREAKING_NEWS_ROLLER . 'includes/class-breaking-news-roller.php';
+require BREAKING_NEWS_TICKER . 'includes/class-breaking-news-ticker.php';
 
 /**
  * Begins execution of the plugin.
@@ -87,13 +89,13 @@ require BREAKING_NEWS_ROLLER . 'includes/class-breaking-news-roller.php';
  *
  * @since    1.0.0
  */
-function run_breaking_news_roller() {
+function run_breaking_news_ticker()
+{
 
-	$plugin = new Breaking_News_Roller();
+	$plugin = new Breaking_News_Ticker();
 	$plugin->run();
-
 }
-run_breaking_news_roller();
+run_breaking_news_ticker();
 
 
 // class BreakingNewsSlider{
@@ -110,7 +112,7 @@ run_breaking_news_roller();
 
 //     //activate plugin
 //     function activate(){
-//         require_once BREAKING_NEWS_ROLLER . 'admin/classes/activate.php';
+//         require_once BREAKING_NEWS_TICKER . 'admin/classes/activate.php';
         
 //         BreakingNewsSliderActivate::activate();
 //     }
@@ -129,26 +131,26 @@ run_breaking_news_roller();
 //             'Breaking News Slider', 
 //             'Breaking News Slider', 
 //             'manage_options', 
-//             BREAKING_NEWS_ROLLER . 'admin/page-template/slider-list.php', 
+//             BREAKING_NEWS_TICKER . 'admin/page-template/slider-list.php', 
 //             null, 
 //             null,
 //             //plugins_url('admin/media/icon/list-check.svg', __FILE__), 
 //             3 
 //         );
 //         add_submenu_page( 
-//             BREAKING_NEWS_ROLLER . 'admin/page-template/slider-list.php', 
+//             BREAKING_NEWS_TICKER . 'admin/page-template/slider-list.php', 
 //             'Add New Slider', 
 //             'Add New', 
 //             'manage_options', 
-//             BREAKING_NEWS_ROLLER . 'admin/page-template/slider-add.php', 
+//             BREAKING_NEWS_TICKER . 'admin/page-template/slider-add.php', 
 //             null
 //         );
 //         add_submenu_page( 
-//             BREAKING_NEWS_ROLLER . 'admin/page-template/slider-list.php', 
+//             BREAKING_NEWS_TICKER . 'admin/page-template/slider-list.php', 
 //             'Settings', 
 //             'Settings', 
 //             'manage_options', 
-//             BREAKING_NEWS_ROLLER . 'admin/page-template/slider-settings.php', 
+//             BREAKING_NEWS_TICKER . 'admin/page-template/slider-settings.php', 
 //             null
 //         );
 
@@ -187,7 +189,7 @@ run_breaking_news_roller();
 
 // require_once dirname(__FILE__).'/admin/classes/shortcode.php';
 
-// add_shortcode('NEWSROLLER', 'printNewsSlider');
+// add_shortcode('NEWSTICKER', 'printNewsSlider');
 
 // function printNewsSlider($id){
 

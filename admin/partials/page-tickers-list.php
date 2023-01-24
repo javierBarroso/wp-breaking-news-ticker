@@ -1,13 +1,13 @@
 <?php
 
-$bnr_admin = new Breaking_News_Roller_Admin( PLUGIN_NAME , BREAKING_NEWS_ROLLER_VERSION);
+$bnr_admin = new Breaking_News_Ticker_Admin(PLUGIN_NAME, BREAKING_NEWS_TICKER_VERSION);
 
-$rollers = $bnr_admin->get_rollers();
+$tickers = $bnr_admin->get_tickers();
 
 ?>
 
-<div class="warp">
-    <h2>Breaking News Rollers</h2>
+<div class="wrap">
+    <h2>Breaking News Tickers</h2>
     <br>
     <a id="btn_nuevo" class="page-title-action" href="?page=wp-breaking-news-slider%2Fadmin%2Fpage-template%2Fslider-add.php">Add New</a>
 
@@ -21,23 +21,25 @@ $rollers = $bnr_admin->get_rollers();
             <th>Actions</th>
         </thead>
         <tbody>
-    <?php
-        $html = '';
-        foreach ($rollers as $key => $roller) {
-            
-            $html .= '<tr>';
-            $html .= '<td>'.$roller['title'].'<td>';
-            $html .= '<td>'.get_userdata( $roller['author_id'] ) -> user_login.'</td>';
-            $html .= '<td>'.$roller['shortcode'].'<td>';
-            $html .= '<td>'.$roller['date'].'<td>';
-            $html .= '<td><input type="button" value="Remove" class="remove-slider"><td>';
-            $html .= '</tr>';
-            echo $html;
+            <?php
             $html = '';
-        }
-    ?>
+            foreach ($tickers as $key => $ticker) {
 
-<div class="container">
+                $html .= '<tr>';
+                $html .= '<td>' . $ticker['title'] . '<td>';
+                $html .= '<td>' . get_userdata($ticker['author_id'])->user_login . '</td>';
+                $html .= '<td>' . $ticker['shortcode'] . '<td>';
+                $html .= '<td>' . $ticker['date'] . '<td>';
+                $html .= '<td><input type="button" value="Remove" class="remove-slider"><td>';
+                $html .= '</tr>';
+                echo $html;
+                $html = '';
+            }
+            ?>
+
+
+
+            <!-- <div class="container">
 
     <div class="box">
         <div>
@@ -80,5 +82,5 @@ text-align: center;
 
 margin: 20%;
 }
-</style>
+</style> -->
 </div>

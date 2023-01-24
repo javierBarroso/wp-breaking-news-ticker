@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Breaking_News_Roller
- * @subpackage Breaking_News_Roller/admin
+ * @package    Breaking_News_Ticker
+ * @subpackage Breaking_News_Ticker/admin
  */
 
 /**
@@ -16,11 +16,12 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Breaking_News_Roller
- * @subpackage Breaking_News_Roller/public
+ * @package    Breaking_News_Ticker
+ * @subpackage Breaking_News_Ticker/public
  * @author     Javier Barroso <abby.javi.infox@gmail.com>
  */
-class Breaking_News_Roller_Public {
+class Breaking_News_Ticker_Public
+{
 
 	/**
 	 * The ID of this plugin.
@@ -47,24 +48,24 @@ class Breaking_News_Roller_Public {
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct($plugin_name, $version)
+	{
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		require BREAKING_NEWS_ROLLER . 'public/class-breaking-news-roller-shortcode.php';
+		require BREAKING_NEWS_TICKER . 'public/class-breaking-news-ticker-shortcode.php';
 
-		add_shortcode('NEWSROLLER', array($this, 'printNewsSlider'));
-
+		add_shortcode('NEWSTICKER', array($this, 'printNewsSlider'));
 	}
-	function printNewsSlider($id){
+	function printNewsSlider($id)
+	{
 
-		if(class_exists('Breaking_News_Roller_ShortCode')){
-			$shortcode = new Breaking_News_Roller_ShortCode();
+		if (class_exists('Breaking_News_Ticker_ShortCode')) {
+			$shortcode = new Breaking_News_Ticker_ShortCode();
 		}
-		
+
 		return $shortcode->print($id);
-		
 	}
 
 	/**
@@ -72,7 +73,8 @@ class Breaking_News_Roller_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -86,8 +88,7 @@ class Breaking_News_Roller_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/breaking-news-roller-public.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/breaking-news-ticker-public.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -95,7 +96,8 @@ class Breaking_News_Roller_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -109,8 +111,6 @@ class Breaking_News_Roller_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/breaking-news-roller-public.js', array( 'jquery' ), $this->version, false );
-
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/breaking-news-ticker-public.js', array('jquery'), $this->version, false);
 	}
-
 }

@@ -1,0 +1,51 @@
+.ticker-container {
+  margin: 10px 0;
+  border-radius: 0 0 1rem 0;
+  display: flex;
+}
+.ticker-container * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.ticker-container .heading {
+  border-radius: 0 0 1rem 0;
+  background-color: red;
+  padding: 0.4rem 2rem;
+  position: relative;
+  flex: 1 0 auto;
+  border-bottom: solid 3px #333;
+  z-index: 5;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.ticker-container .heading .label {
+  font-size: 25px;
+}
+.ticker-container .heading .over-label {
+  border-radius: 0 0 1rem 0;
+  position: absolute;
+  background-color: yellow;
+  border-bottom: solid 3px #333;
+  padding: 0.2rem 1rem;
+  margin-bottom: -5px;
+  bottom: 100%;
+  left: 0;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.ticker-container .heading .main-text * {
+  color: aliceblue;
+}
+.ticker-container .scroller {
+  background-color: darkslategray;
+  margin: auto 0;
+  flex: 0 1 auto;
+  position: relative;
+  width: 100%;
+  color: antiquewhite;
+  margin-left: -5%;
+}
+.ticker-container .scroller marquee {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}/*# sourceMappingURL=breaking-news-ticker-public.css.map */
