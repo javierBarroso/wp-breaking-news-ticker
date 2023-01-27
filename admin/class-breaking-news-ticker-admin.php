@@ -22,6 +22,9 @@
  * 
  * 
  */
+
+namespace adm;
+
 class Breaking_News_Ticker_Admin
 {
 
@@ -57,6 +60,19 @@ class Breaking_News_Ticker_Admin
 		$this->version = $version;
 
 		add_action('admin_menu', array($this, 'add_admin_menu'));
+
+		add_filter('plugin_action_links_' . PLUGIN_NAME, array($this, 'settings_link'));
+	}
+
+	function settings_link($links)
+	{
+		$demo_link = '<a style="color:red; font-weight: 700;" href="https://google.com">Buy Now</a>';
+		$settings_link = '<a href="admin.php?page=bnt">Settings</a>';
+
+		array_push($links, $demo_link);
+		array_push($links, $settings_link);
+
+		return $links;
 	}
 
 
@@ -64,32 +80,45 @@ class Breaking_News_Ticker_Admin
 	function add_admin_menu()
 	{
 		add_menu_page(
-			'Breaking News Ticker',
-			'Breaking News Ticker',
+			'Tickers',
+			'Breakin News Tickers',
 			'manage_options',
-			BREAKING_NEWS_TICKER . 'admin/partials/page-tickers-list.php',
-			null,
+			'bnt',
+			array($this, 'tickets_list'),
 			null,
 			//plugins_url('admin/media/icon/list-check.svg', __FILE__), 
 			3
 		);
 		add_submenu_page(
-			BREAKING_NEWS_TICKER . 'admin/partials/page-tickers-list.php',
-			'Add New Slider',
-			'Add New',
+			'bnt',
+			'Tickers',
+			'Tickers',
 			'manage_options',
-			BREAKING_NEWS_TICKER . 'admin/partials/page-ticker-add.php',
-			null
+			'bnt',
+			array($this, 'tickets_list'),
 		);
 		add_submenu_page(
-			BREAKING_NEWS_TICKER . 'admin/partials/page-tickers-list.php',
-			'Settings',
-			'Settings',
+			'bnt',
+			'Add New',
+			'Add New',
 			'manage_options',
-			BREAKING_NEWS_TICKER . 'admin/partials/page-ticker-settings.php',
-			null
+			'bnt-add',
+			array($this, 'ticker_add'),
 		);
 	}
+
+	function tickets_list()
+	{
+		require_once PLUGIN_PATH . 'admin/partials/page-tickers-list.php';
+	}
+
+	function ticker_add()
+	{
+		require_once PLUGIN_PATH . 'admin/partials/page-ticker-add.php';
+	}
+
+
+
 
 	/**
 	 * get the stored tickers
@@ -119,7 +148,8 @@ class Breaking_News_Ticker_Admin
 	 * @since 1.0.1
 	 */
 
-	public function get_ticker_and_news($id){
+	public function get_ticker_and_news($id)
+	{
 
 		global $wpdb;
 
@@ -131,7 +161,7 @@ class Breaking_News_Ticker_Admin
 
 		$news = $wpdb->get_results($query_get_news, ARRAY_A);
 
-		return [$ticker[0], $news[0]];
+		return [$ticker[0], $news];
 	}
 
 	/**
@@ -139,7 +169,7 @@ class Breaking_News_Ticker_Admin
 	 * 
 	 * @since 1.0.0
 	 */
-	public function store_ticker($data)
+	public function store_ticker($data, $ticker = null)
 	{
 		global $wpdb;
 
@@ -149,6 +179,7 @@ class Breaking_News_Ticker_Admin
 			$author = wp_get_current_user()->ID;
 
 			$ticker_data = [
+				'ID' => $ticker,
 				'title' => $data['title'],
 				'ticker_label' => $data['ticker_label'],
 				'author_id' => $author,
@@ -157,23 +188,45 @@ class Breaking_News_Ticker_Admin
 				'scroll_speed' => $data['scroll_speed'],
 			];
 
-			$wpdb->insert(TICKERS_TABLE, $ticker_data);
+			if ($ticker == null) {
 
-			$query = "SELECT * FROM " . TICKERS_TABLE . " ORDER BY ID DESC limit 1";
-			$ticker = $wpdb->get_results($query, ARRAY_A);
-			$currentTickertId = $ticker[0]['ID'];
-			$shortcode = "[NEWSTICKER id='$currentTickertId']";
+				$wpdb->insert(TICKERS_TABLE, $ticker_data);
 
-			$wpdb->update(TICKERS_TABLE, array('shortcode' => $shortcode), array('ID' => $currentTickertId));
+				$query = "SELECT * FROM " . TICKERS_TABLE . " ORDER BY ID DESC limit 1";
+				$ticker = $wpdb->get_results($query, ARRAY_A);
+				$currentTickertId = $ticker[0]['ID'];
+				$shortcode = "[NEWSTICKER id='$currentTickertId']";
 
-			foreach ($data['news'] as $key => $news) {
+				$wpdb->update(TICKERS_TABLE, array('shortcode' => $shortcode), array('ID' => $currentTickertId));
 
-				$news_data = [
-					'ticker_id' => $currentTickertId,
-					'news' => $news,
-				];
+				foreach ($data['news'] as $news) {
 
-				$wpdb->insert(NEWS_TABLE, $news_data);
+					$news_data = [
+						'ticker_id' => $currentTickertId,
+						'news' => $news,
+					];
+
+					$wpdb->insert(NEWS_TABLE, $news_data);
+				}
+			} else {
+
+				$wpdb->update(TICKERS_TABLE, $ticker_data, array('ID' => $ticker));
+
+				$query_existing_news = 'SELECT * FROM ' . NEWS_TABLE . 'WHERE ticker_id = ' . $ticker;
+
+				$existing_news = $wpdb->delete(NEWS_TABLE, array('ticker_id' => $ticker));
+
+
+				foreach ($data['news'] as $news) {
+
+					$news_data = [
+						'ticker_id' => $ticker,
+						'news' => $news,
+					];
+
+					$wpdb->insert(NEWS_TABLE, $news_data);
+				}
+				var_dump($existing_news);
 			}
 		}
 
@@ -224,6 +277,5 @@ class Breaking_News_Ticker_Admin
 		 */
 
 		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/breaking-news-ticker-admin.js', array('jquery'), $this->version, false);
-		
 	}
 }

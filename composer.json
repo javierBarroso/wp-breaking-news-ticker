@@ -1,0 +1,20 @@
+{
+    "name": "javier/wp-breaking-news-ticker",
+    "description": "wordpress plugin",
+    "type": "project",
+    "license": "GPL",
+    "autoload": {
+        "psr-4": {
+            "inc\\": "includes/",
+            "adm\\": "admin/",
+            "pub\\": "public/"
+        }
+    },
+    "authors": [
+        {
+            "name": "javier"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

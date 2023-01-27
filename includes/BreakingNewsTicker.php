@@ -27,8 +27,23 @@
  * @subpackage Breaking_News_Ticker/includes
  * @author     Javier Barroso <abby.javi.infox@gmail.com>
  */
-class Breaking_News_Ticker
+
+namespace inc;
+
+if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
+	require_once dirname(__FILE__) . '/vendor/autoload.php';
+}
+
+use adm\Breaking_News_Ticker_Admin;
+use pub\Breaking_News_Ticker_Public;
+
+
+class BreakingNewsTicker
 {
+
+	
+	//use public\Breaking_News_Ticker_Public;
+
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power

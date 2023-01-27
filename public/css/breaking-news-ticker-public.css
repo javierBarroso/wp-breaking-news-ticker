@@ -1,52 +1,74 @@
 .ticker-container {
   margin: 10px 0;
   border-radius: 0 0 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .ticker-container * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 .ticker-container .heading {
-  border-radius: 0 0 1rem 0;
+  border-radius: 0 0 .5rem 0;
   background-color: red;
-  padding: 0.4rem 2rem;
+  padding: .2rem 2rem;
   position: relative;
-  flex: 1 0 auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
   border-bottom: solid 3px #333;
   z-index: 5;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
+
 .ticker-container .heading .label {
-  font-size: 25px;
+  font-size: 1.2rem;
 }
+
 .ticker-container .heading .over-label {
-  border-radius: 0 0 1rem 0;
+  font-size: .7rem;
+  border-radius: 0 0 .5rem 0;
   position: absolute;
   background-color: yellow;
   border-bottom: solid 3px #333;
-  padding: 0.2rem 1rem;
+  padding: .1rem .8rem;
   margin-bottom: -5px;
   bottom: 100%;
   left: 0;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
+
 .ticker-container .heading .main-text * {
   color: aliceblue;
 }
+
 .ticker-container .scroller {
   background-color: darkslategray;
   margin: auto 0;
-  flex: 0 1 auto;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   position: relative;
   width: 100%;
   color: antiquewhite;
   margin-left: -5%;
 }
+
 .ticker-container .scroller marquee {
-  padding: 0.6rem 0;
+  padding: .2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  font-size: 20px;
-}/*# sourceMappingURL=breaking-news-ticker-public.css.map */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+}
+/*# sourceMappingURL=breaking-news-ticker-public.css.map */

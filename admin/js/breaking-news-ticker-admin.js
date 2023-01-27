@@ -4,6 +4,10 @@ var news_count = 1
 function add_news(){
     var news_container = document.getElementById('news-container')
 
+    news_texts = document.getElementsByClassName('news-text').length;
+    
+    news_count = news_texts;
+
     news_count += 1
 
     var news = document.createElement('tr');
@@ -14,7 +18,7 @@ function add_news(){
                         <label for="news-` + news_count + `">News ` + news_count + `</label>
                     </th>
                     <td>
-                        <textarea class="regular-text" name="news[]" id="news-` + news_count + `" cols="30" rows="10"></textarea>
+                        <textarea class="regular-text news-text" name="news[]" id="news-` + news_count + `" cols="30" rows="10"></textarea>
                         <input class="button button-secondary" type="button" value="Delete" onclick="delete_news(\'news-container-` + news_count + `\')">
                     </td>`
 

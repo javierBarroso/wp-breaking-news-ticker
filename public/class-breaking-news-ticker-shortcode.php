@@ -24,7 +24,7 @@ class Breaking_News_Ticker_ShortCode
             $news_text .= $value['news'] . '   //   ';
         }
 
-        $html .= '<div class="scroller"><marquee behavior="" direction="" height="100%" vspace="50%">' . $news_text . '</marquee></div>';
+        $html .= '<div class="scroller"><marquee behavior="' . $ticker[0]['scroll_speed'] . '" direction="" height="100%" vspace="50%">' . $news_text . '</marquee></div>';
 
         $html .= '</div>';
 
