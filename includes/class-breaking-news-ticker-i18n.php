@@ -25,7 +25,7 @@
  * @author     Javier Barroso <abby.javi.infox@gmail.com>
  */
 
-namespace inc;
+
 
 class Breaking_News_Ticker_i18n
 {

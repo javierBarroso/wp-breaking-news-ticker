@@ -23,7 +23,7 @@
  * 
  */
 
-namespace adm;
+
 
 class Breaking_News_Ticker_Admin
 {
@@ -186,6 +186,7 @@ class Breaking_News_Ticker_Admin
 				'date' => $current_date,
 				'top_label' => $data['top_label'],
 				'scroll_speed' => $data['scroll_speed'],
+				'ticker_style' => $data['ticker_style'],
 			];
 
 			if ($ticker == null) {

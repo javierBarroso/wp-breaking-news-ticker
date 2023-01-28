@@ -10,12 +10,14 @@
  * @wordpress-plugin
  * Plugin Name:       Breaking News Ticker
  * Plugin URI:        https://wirenomads.com
- * Description:       Easily create a news ticker to show your clients th elatest news.
- * Version:           0.1.0
+ * Description:       Easily create a news ticker to show your clients the latest news.
+ * Version:           1.1.0
+ * Requires at least: 5.2
+ * Requires PHP:      7.2
  * Author:            Javier Barroso
  * Author URI:        https://wirenomads.com
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       breaking-news-ticker
  * Domain Path:       /languages
  */
@@ -27,18 +29,9 @@ if (!defined('WPINC')) {
 }
 defined('ABSPATH') or die('Hey, Hands off this file!!!!');
 
-if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
-	require_once dirname(__FILE__) . '/vendor/autoload.php';
-}
-
-
-use inc\BreakingNewsTicker;
-use inc\Breaking_News_Ticker_Activator;
-use inc\Breaking_News_Ticker_Deactivator;
-
-//require dirname(__FILE__) . '/includes/class-breaking-news-ticker.php';
-// require dirname(__FILE__) . '/includes/class-breaking-news-ticker-activator.php';
-// require dirname(__FILE__) . '/includes/class-breaking-news-ticker-deactivator.php';
+require dirname(__FILE__) . '/includes/class-breaking-news-ticker.php';
+require dirname(__FILE__) . '/includes/class-breaking-news-ticker-activator.php';
+require dirname(__FILE__) . '/includes/class-breaking-news-ticker-deactivator.php';
 
 /**
  * Currently plugin version.
@@ -104,7 +97,7 @@ register_deactivation_hook(__FILE__, 'deactivate_breaking_news_ticker');
  */
 function run_breaking_news_ticker()
 {
-	$plugin = new BreakingNewsTicker();
+	$plugin = new Breaking_News_Ticker();
 	$plugin->run();
 }
 run_breaking_news_ticker();

@@ -23,7 +23,7 @@
  */
 
 
-namespace inc;
+
 
 class Breaking_News_Ticker_Loader
 {

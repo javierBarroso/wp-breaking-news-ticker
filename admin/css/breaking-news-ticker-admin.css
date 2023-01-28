@@ -1,1 +1,23 @@
-/* No CSS *//*# sourceMappingURL=breaking-news-ticker-admin.css.map */
+.ticker-admin-page * {
+  box-sizing: border-box;
+}
+.ticker-admin-page h2 {
+  background-color: #2271bb;
+  color: #fff;
+  width: 90%;
+  padding: 1rem;
+  margin-bottom: 0;
+}
+.ticker-admin-page .group {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  width: 90%;
+  background-color: #fff;
+  margin: 0;
+  padding: 2%;
+  border: 1px solid #ddd;
+}
+.ticker-admin-page .group table tr {
+  display: table-row;
+}/*# sourceMappingURL=breaking-news-ticker-admin.css.map */

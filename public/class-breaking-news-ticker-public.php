@@ -21,7 +21,7 @@
  * @author     Javier Barroso <abby.javi.infox@gmail.com>
  */
 
-namespace pub;
+
 
 class Breaking_News_Ticker_Public
 {

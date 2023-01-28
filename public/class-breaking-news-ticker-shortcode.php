@@ -1,4 +1,6 @@
 <?php
+
+
 class Breaking_News_Ticker_ShortCode
 {
 
@@ -16,7 +18,7 @@ class Breaking_News_Ticker_ShortCode
 
         $news_text = '';
 
-        $html = '<div class="ticker-container">';
+        $html = '<div class="ticker-container ' . $ticker[0]['ticker_style'] . '">';
 
         $html .= '<div class="heading"><div class="over-label">'. $ticker[0]['top_label'] .'</div><div class="main-text"><span></span><span class="label">' . $ticker[0]['ticker_label'] . '</span></div></div>';
 

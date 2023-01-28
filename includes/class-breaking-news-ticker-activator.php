@@ -20,7 +20,6 @@
  * @author     Javier Barroso <abby.javi.infox@gmail.com>
  */
 
-namespace inc;
 
 
 class Breaking_News_Ticker_Activator
@@ -43,6 +42,7 @@ class Breaking_News_Ticker_Activator
             `ticker_label` TEXT, 
             `top_label` TEXT, 
             `scroll_speed` INT, 
+            `ticker_style` TEXT, 
             `author_id` INT NOT NULL ,
             `shortcode` VARCHAR(50) NOT NULL , 
             `date` DATE NOT NULL ,

@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "breaking-news-ticker-admin.scss"
-    ],
-    "names": [],
-    "file": "breaking-news-ticker-admin.css"
-}
+{"version":3,"sources":["breaking-news-ticker-admin.scss","breaking-news-ticker-admin.css"],"names":[],"mappings":"AAII;EACI,sBAAA;ACHR;ADOI;EACI,yBAAA;EACA,WAAA;EACA,UAAA;EACA,aAAA;EACA,gBAAA;ACLR;ADOI;EACI,kBAAA;EACA,sBAAA;EACA,cAAA;EACA,UAAA;EACA,sBAAA;EACA,SAAA;EACA,WAAA;EACA,sBAAA;ACLR;ADQY;EACI,kBAAA;ACNhB","file":"breaking-news-ticker-admin.css"}

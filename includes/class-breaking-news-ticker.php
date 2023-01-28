@@ -28,17 +28,15 @@
  * @author     Javier Barroso <abby.javi.infox@gmail.com>
  */
 
-namespace inc;
-
-if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
-	require_once dirname(__FILE__) . '/vendor/autoload.php';
-}
-
-use adm\Breaking_News_Ticker_Admin;
-use pub\Breaking_News_Ticker_Public;
 
 
-class BreakingNewsTicker
+// if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
+// 	require_once dirname(__FILE__) . '/vendor/autoload.php';
+// }
+
+
+
+class Breaking_News_Ticker
 {
 
 	

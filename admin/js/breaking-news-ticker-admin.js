@@ -19,7 +19,9 @@ function add_news(){
                     </th>
                     <td>
                         <textarea class="regular-text news-text" name="news[]" id="news-` + news_count + `" cols="30" rows="10"></textarea>
-                        <input class="button button-secondary" type="button" value="Delete" onclick="delete_news(\'news-container-` + news_count + `\')">
+                        <p>Enter News ` + news_count + ` text</p>
+                        <br>
+                        <input class="button button-secondary" type="button" value="Delete News ` + news_count + `" onclick="delete_news(\'news-container-` + news_count + `\')">
                     </td>`
 
 

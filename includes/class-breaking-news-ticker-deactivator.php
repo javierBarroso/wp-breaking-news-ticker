@@ -21,7 +21,7 @@
  * @author     Your Name <email@example.com>
  */
 
-namespace inc;
+
 
 class Breaking_News_Ticker_Deactivator
 {
