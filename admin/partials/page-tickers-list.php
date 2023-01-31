@@ -1,6 +1,6 @@
 <?php
 
-$bnr_admin = new Breaking_News_Ticker_Admin(PLUGIN_NAME, BREAKING_NEWS_TICKER_VERSION);
+$bnr_admin = new Breaking_News_Ticker_Admin(BREAKING_NEWS_TICKER_NAME, BREAKING_NEWS_TICKER_VERSION);
 
 $tickers = $bnr_admin->get_tickers();
 
@@ -41,19 +41,19 @@ $edit_ticker = 'admin.php?page=bnt-add&ticker=';
                 $html = '';
                 foreach ($tickers as $key => $ticker) {
 
-                    $html .= '<tr id="post-'.$key.'" class="iedit author-self level-0 post-1 type-post status-publish format-standard hentry category-Dummy category">';
+                    $html .= '<tr ' . esc_attr( 'id=' . $key ) . ' class="iedit author-self level-0 post-1 type-post status-publish format-standard hentry category-Dummy category">';
                     $html .= '<th scope="row" class="check-column">
                                     <label class="screen-reader-text" for="cb-select-1">Select Post #1</label>
                                     <input id="cb-select-1" type="checkbox" name="post[]" value="1">
                                     <div class="locked-indicator">
                                         <span class="locked-indicator-icon" aria-hidden="true"></span>
                                         <span class="screen-reader-text">
-                                            “Post #'.$key.'” is locked
+                                            “Post #' . esc_html( $key ) . '” is locked
                                         </span>
                                     </div>
                                 </th>';
-                    $html .= '<td class="title column-title has-row-actions column-primary page-title" data-colname="Title">' . $ticker['title'] . ' <div class="row-actions">
-                    <span class="edit"><a href="'. $edit_ticker . $ticker['ID'] . '" aria-label="Edit “Post #1”">Edit</a> | </span>
+                    $html .= '<td class="title column-title has-row-actions column-primary page-title" data-colname="Title">' . esc_html( $ticker['title'] ) . ' <div class="row-actions">
+                    <span class="edit"><a ' . esc_attr( 'href=' . $edit_ticker . $ticker['ID'] ) . ' aria-label="Edit “Post #1”">Edit</a> | </span>
                     <span class="trash"><a href="javascript:void(0)" class="submitdelete" aria-label="Move “Post #1” to the Trash">Trash</a></div></td>';
                     $html .= '<td class="title column-title has-row-actions column-primary page-title" data-colname="Title">' . get_userdata($ticker['author_id'])->user_login . '</td>';
                     $html .= '<td class="title column-title has-row-actions column-primary page-title" data-colname="Title">' . $ticker['shortcode'] . '</td>';
@@ -85,3 +85,7 @@ $edit_ticker = 'admin.php?page=bnt-add&ticker=';
         </table>
     </div>
 </div>
+
+<?php
+$loco = 'test';
+echo esc_html__( '<h3>test</h3>' ) .  '<h3 '. esc_attr( 'id=' . $loco ).'>test</h3>';

@@ -48,7 +48,7 @@ function delete_news(id){
 
 
 (function($){
-    $(document).on('click', '.remove-slider', function(){
+    $(document).on('click', '.remove-ticker', function(){
         alert('test');
     })
 })(jQuery)

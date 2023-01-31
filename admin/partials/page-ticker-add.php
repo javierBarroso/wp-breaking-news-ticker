@@ -1,7 +1,7 @@
 <?php
 
 
-$bnr_admin = new Breaking_News_Ticker_Admin(PLUGIN_NAME, BREAKING_NEWS_TICKER_VERSION);
+$bnr_admin = new Breaking_News_Ticker_Admin(BREAKING_NEWS_TICKER_NAME, BREAKING_NEWS_TICKER_VERSION);
 
 $bnr_admin->store_ticker($_POST, isset($_GET['ticker']) ? $_GET['ticker'] : null);
 

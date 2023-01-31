@@ -61,7 +61,7 @@ class Breaking_News_Ticker_Admin
 
 		add_action('admin_menu', array($this, 'add_admin_menu'));
 
-		add_filter('plugin_action_links_' . PLUGIN_NAME, array($this, 'settings_link'));
+		add_filter('plugin_action_links_' . BREAKING_NEWS_TICKER_NAME, array($this, 'settings_link'));
 	}
 
 	function settings_link($links)
@@ -109,12 +109,12 @@ class Breaking_News_Ticker_Admin
 
 	function tickets_list()
 	{
-		require_once PLUGIN_PATH . 'admin/partials/page-tickers-list.php';
+		require_once BREAKING_NEWS_TICKER_PATH . 'admin/partials/page-tickers-list.php';
 	}
 
 	function ticker_add()
 	{
-		require_once PLUGIN_PATH . 'admin/partials/page-ticker-add.php';
+		require_once BREAKING_NEWS_TICKER_PATH . 'admin/partials/page-ticker-add.php';
 	}
 
 

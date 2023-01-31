@@ -54,16 +54,16 @@ if (!defined('BREAKING_NEWS_TICKER_VERSION')) {
 	define('BREAKING_NEWS_TICKER_VERSION', '1.0.0');
 }
 /**pugin name */
-if (!defined('PLUGIN_NAME')) {
-	define('PLUGIN_NAME', plugin_basename(__FILE__));
+if (!defined('BREAKING_NEWS_TICKER_NAME')) {
+	define('BREAKING_NEWS_TICKER_NAME', plugin_basename(__FILE__));
 }
 /**plugin path */
-if (!defined('PLUGIN_PATH')) {
-	define('PLUGIN_PATH', plugin_dir_path(__FILE__));
+if (!defined('BREAKING_NEWS_TICKER_PATH')) {
+	define('BREAKING_NEWS_TICKER_PATH', plugin_dir_path(__FILE__));
 }
 /**plugin url */
-if (!defined('PLUGIN_URL')) {
-	define('PLUGIN_URL', plugin_dir_url(__FILE__));
+if (!defined('BREAKING_NEWS_TICKER_URL')) {
+	define('BREAKING_NEWS_TICKER_URL', plugin_dir_url(__FILE__));
 }
 
 /**DB tables */
