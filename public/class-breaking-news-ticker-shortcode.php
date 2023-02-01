@@ -3,30 +3,35 @@
 
 class Breaking_News_Ticker_ShortCode
 {
-
-    function print($id)
+    /**
+     * returns the html for the public side of the site
+     * 
+     * @since   1.0.0
+     */
+    public static function print($id)
     {
         global $wpdb;
-
 
         $query1 = "SELECT * FROM " . TICKERS_TABLE . " WHERE ID = " . $id["id"] . "";
         $query2 = "SELECT * FROM " . NEWS_TABLE . " WHERE ticker_id = " . $id["id"] . "";
 
-        $ticker = $wpdb->get_results($query1, ARRAY_A);
+        $ticker = $wpdb->get_results($query1)[0];
 
         $news = $wpdb->get_results($query2, ARRAY_A);
 
+        $show_top_label = $ticker->top_label == '' ? 'display:none' : '';
+
         $news_text = '';
 
-        $html = '<div class="ticker-container ' . $ticker[0]['ticker_style'] . '">';
+        $html = '<div class="ticker-container ' . $ticker->ticker_style . '">';
 
-        $html .= '<div class="heading"><div class="over-label">'. $ticker[0]['top_label'] .'</div><div class="main-text"><span></span><span class="label">' . $ticker[0]['ticker_label'] . '</span></div></div>';
+        $html .= '<div class="heading"><div style="' . $show_top_label . '" class="over-label">'. $ticker->top_label .'</div><div class="main-text"><span></span><span class="label">' . $ticker->ticker_label . '</span></div></div>';
 
-        foreach ($news as $key => $value) {
+        foreach ($news as $value) {
             $news_text .= $value['news'] . '   //   ';
         }
 
-        $html .= '<div class="scroller"><marquee behavior="' . $ticker[0]['scroll_speed'] . '" direction="" height="100%" vspace="50%">' . $news_text . '</marquee></div>';
+        $html .= '<div class="scroller"><marquee scrollamount="' . $ticker->scroll_speed . '" direction="" height="100%" vspace="50%">' . $news_text . '</marquee></div>';
 
         $html .= '</div>';
 

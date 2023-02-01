@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 
  *
@@ -11,7 +10,7 @@
  * Plugin Name:       Breaking News Ticker
  * Plugin URI:        https://wirenomads.com
  * Description:       Easily create a news ticker to show your clients the latest news.
- * Version:           1.1.0
+ * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Javier Barroso
@@ -29,36 +28,45 @@ if (!defined('WPINC')) {
 }
 defined('ABSPATH') or die('Hey, Hands off this file!!!!');
 
+
+/**require files */
 require dirname(__FILE__) . '/includes/class-breaking-news-ticker.php';
 require dirname(__FILE__) . '/includes/class-breaking-news-ticker-activator.php';
 require dirname(__FILE__) . '/includes/class-breaking-news-ticker-deactivator.php';
 
-/**
- * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
- */
 
 
 
 /**
  * Define constants
  */
+
+/**
+ * plugin path
+*/
 if (!defined('BREAKING_NEWS_TICKER')) {
 	define('BREAKING_NEWS_TICKER', plugin_dir_path(__FILE__));
 }
+/**
+ * Currently plugin version.
+ */
 if (!defined('BREAKING_NEWS_TICKER_VERSION')) {
 	define('BREAKING_NEWS_TICKER_VERSION', '1.0.0');
 }
+/**pugin name */
 if (!defined('PLUGIN_NAME')) {
 	define('PLUGIN_NAME', plugin_basename(__FILE__));
 }
+/**plugin path */
 if (!defined('PLUGIN_PATH')) {
 	define('PLUGIN_PATH', plugin_dir_path(__FILE__));
 }
+/**plugin url */
 if (!defined('PLUGIN_URL')) {
 	define('PLUGIN_URL', plugin_dir_url(__FILE__));
 }
+
+/**DB tables */
 global $wpdb;
 if (!defined('TICKERS_TABLE')) {
 	define('TICKERS_TABLE', $wpdb->prefix . 'breaking_news_ticker');

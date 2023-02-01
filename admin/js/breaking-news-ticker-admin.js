@@ -18,7 +18,7 @@ function add_news(){
                         <label for="news-` + news_count + `">News ` + news_count + `</label>
                     </th>
                     <td>
-                        <textarea class="regular-text news-text" name="news[]" id="news-` + news_count + `" cols="30" rows="10"></textarea>
+                        <textarea required class="regular-text news-text" name="news[]" id="news-` + news_count + `" cols="30" rows="10"></textarea>
                         <p>Enter News ` + news_count + ` text</p>
                         <br>
                         <input class="button button-secondary" type="button" value="Delete News ` + news_count + `" onclick="delete_news(\'news-container-` + news_count + `\')">
@@ -30,9 +30,19 @@ function add_news(){
 
 function delete_news(id){
 
-    var news = document.getElementById(id)
+    news_texts = document.getElementsByClassName('news-text').length;
 
-    news.remove()
+    if(news_texts > 1){
+
+        var news = document.getElementById(id)
+    
+        news.remove()
+
+        return;
+    }
+
+    alert('At least one news is required');
+
 
 }
 

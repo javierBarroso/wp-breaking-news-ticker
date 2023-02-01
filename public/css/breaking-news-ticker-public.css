@@ -1,186 +1,246 @@
 .ticker-container {
   margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .ticker-container * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 .ticker-container .heading {
   position: relative;
-  flex: 1 0 auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
   z-index: 5;
 }
+
 .ticker-container .heading .label {
   font-size: 1.2rem;
   font-weight: 700;
 }
+
 .ticker-container .heading .over-label {
-  font-size: 0.7rem;
+  font-size: .7rem;
   position: absolute;
-  padding: 0.1rem 0.8rem;
+  padding: .1rem .8rem;
   margin-bottom: -5px;
   bottom: 100%;
   left: 0;
   font-weight: 700;
 }
+
 .ticker-container .heading .main-text * {
   color: aliceblue;
 }
+
 .ticker-container .scroller {
   margin: auto 0;
-  flex: 0 1 auto;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   position: relative;
   width: 100%;
   margin-left: -5%;
 }
+
 .ticker-container .scroller marquee {
-  padding: 0.2rem 0;
+  padding: .2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .ticker-container.simple .heading {
   border-radius: 0;
   background-color: #2271bb;
-  padding: 0.2rem 1rem;
+  padding: .2rem 1rem;
 }
+
 .ticker-container.simple .heading .label {
   font-size: 1.2rem;
 }
+
 .ticker-container.simple .heading .over-label {
   border-radius: 0;
   background-color: #f0b208;
-  padding: 0.1rem 0.8rem;
+  padding: .1rem .8rem;
 }
+
 .ticker-container.simple .heading .main-text * {
   color: aliceblue;
 }
+
 .ticker-container.simple .scroller {
-  padding: 0.2rem 0rem;
+  padding: .2rem 0rem;
   border: 2px solid #2271bb;
   color: #333;
   margin-left: -5%;
 }
+
 .ticker-container.simple .scroller marquee {
   font-size: 1rem;
 }
+
 .ticker-container.fancy .heading {
-  border-radius: 0 0 0.5rem 0;
+  border-radius: 0 0 .5rem 0;
   background-color: red;
-  padding: 0.3rem 2rem;
-  border-bottom: solid 3px rgb(179, 0, 0);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  padding: .3rem 2rem;
+  border-bottom: solid 3px #b30000;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
+
 .ticker-container.fancy .heading .label {
   font-size: 1.2rem;
 }
+
 .ticker-container.fancy .heading .over-label {
-  border-radius: 0 0 0.5rem 0;
-  background-color: rgb(243, 227, 1);
-  padding: 0.1rem 0.8rem;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 .5rem 0;
+  background-color: #f3e301;
+  padding: .1rem .8rem;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
+
 .ticker-container.fancy .heading .main-text * {
   color: aliceblue;
 }
+
 .ticker-container.fancy .scroller {
   background-color: #222;
   color: antiquewhite;
   margin-left: -5%;
-  padding: 0.2rem 0rem;
+  padding: .2rem 0rem;
   border: #222 solid 1px;
 }
+
 .ticker-container.fancy .scroller marquee {
   font-size: 1rem;
 }
+
 .ticker-container.rounded .heading {
   border-radius: 5rem;
-  background-color: rgb(46, 91, 214);
-  padding: 0.2rem 2rem;
+  background-color: #2e5bd6;
+  padding: .2rem 2rem;
 }
+
 .ticker-container.rounded .heading .label {
   font-size: 1.2rem;
 }
+
 .ticker-container.rounded .heading .over-label {
   border-radius: 5rem;
-  background-color: rgb(243, 227, 1);
-  padding: 0.1rem 0.8rem;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  background-color: #f3e301;
+  padding: .1rem .8rem;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
+
 .ticker-container.rounded .heading .main-text * {
   color: aliceblue;
 }
+
 .ticker-container.rounded .scroller {
   color: #222;
   margin-left: -5%;
-  padding: 0.2rem 0rem;
-  border: rgb(46, 91, 214) solid 3px;
+  padding: .2rem 0rem;
+  border: #2e5bd6 solid 3px;
   border-radius: 5rem;
 }
+
 .ticker-container.rounded .scroller marquee {
   font-size: 1rem;
 }
+
 .ticker-container.fast .heading {
   border-radius: 0rem;
-  transform: skewX(-15deg);
-  background: linear-gradient(to right, rgb(255, 38, 0), rgb(255, 166, 0));
+  -webkit-transform: skewX(-15deg);
+          transform: skewX(-15deg);
+  background: -webkit-gradient(linear, left top, right top, from(#ff2600), to(#ffa600));
+  background: linear-gradient(to right, #ff2600, #ffa600);
   background-color: red;
-  padding: 0.6rem 2rem;
+  padding: .4rem 1.3rem;
 }
+
 .ticker-container.fast .heading .label {
   font-size: 1.2rem;
 }
+
 .ticker-container.fast .heading .over-label {
   border-radius: 0rem;
   color: #fff;
-  background-color: rgb(131, 64, 255);
-  padding: 0.1rem 0.8rem;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  background-color: #8340ff;
+  padding: .1rem .8rem;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   margin-left: 1rem;
 }
+
 .ticker-container.fast .heading .main-text * {
   color: aliceblue;
 }
+
 .ticker-container.fast .scroller {
   color: #222;
   margin-left: -5%;
-  padding: 0.2rem 0rem;
-  border: rgb(46, 91, 214) solid 2px;
+  padding: .1rem 0rem;
+  border: #2e5bd6 solid 2px;
   border-radius: 0rem;
-  transform: skew(-15deg);
+  -webkit-transform: skew(-15deg);
+          transform: skew(-15deg);
 }
+
 .ticker-container.fast .scroller marquee {
-  font-size: 1rem;
+  font-size: .8rem;
 }
+
 .ticker-container.dimension .heading {
-  border-radius: 0.8rem;
-  background: linear-gradient(to right, rgb(0, 132, 255), rgb(100, 198, 255));
+  border-radius: .8rem;
+  background: -webkit-gradient(linear, left top, right top, from(#0084ff), to(#64c6ff));
+  background: linear-gradient(to right, #0084ff, #64c6ff);
   background-color: red;
-  padding: 0.6rem 2rem;
-  box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.6);
+  padding: .6rem 2rem;
+  -webkit-box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.6);
+          box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.6);
 }
+
 .ticker-container.dimension .heading .label {
   font-size: 1.2rem;
 }
+
 .ticker-container.dimension .heading .over-label {
-  border-radius: 0.2rem;
+  border-radius: .2rem;
   color: aliceblue;
-  background-color: rgb(0, 100, 194);
-  padding: 0.1rem 0.8rem;
-  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.6);
+  background-color: #0064c2;
+  padding: .1rem .8rem;
+  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.6);
+          box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.6);
   margin-left: 1rem;
 }
+
 .ticker-container.dimension .heading .main-text * {
   color: aliceblue;
 }
+
 .ticker-container.dimension .scroller {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(232, 245, 253));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#e8f5fd));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #e8f5fd);
   color: #222;
   margin-left: -5%;
-  padding: 0.2rem 0rem;
+  padding: .2rem 0rem;
   border-radius: 0rem;
 }
+
 .ticker-container.dimension .scroller marquee {
   font-size: 1rem;
-}/*# sourceMappingURL=breaking-news-ticker-public.css.map */
+}
+/*# sourceMappingURL=breaking-news-ticker-public.css.map */

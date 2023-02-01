@@ -1,1 +1,9 @@
-{"version":3,"sources":["breaking-news-ticker-admin.scss","breaking-news-ticker-admin.css"],"names":[],"mappings":"AAII;EACI,sBAAA;ACHR;ADOI;EACI,yBAAA;EACA,WAAA;EACA,UAAA;EACA,aAAA;EACA,gBAAA;ACLR;ADOI;EACI,kBAAA;EACA,sBAAA;EACA,cAAA;EACA,UAAA;EACA,sBAAA;EACA,SAAA;EACA,WAAA;EACA,sBAAA;ACLR;ADQY;EACI,kBAAA;ACNhB","file":"breaking-news-ticker-admin.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAII,kBAJc,CAId,CAAC,CAAA;EACG,UAAU,EAAE,UAAU;CACzB;;AANL,AASI,kBATc,CASd,EAAE,CAAA;EACE,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,IAAI;EACX,KAAK,EAAE,GAAG;EACV,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,CAAC;CACnB;;AAfL,AAgBI,kBAhBc,CAgBd,MAAM,CAAA;EACF,QAAQ,EAAE,QAAQ;EAClB,UAAU,EAAE,UAAU;EACtB,OAAO,EAAE,KAAK;EACd,KAAK,EAAE,GAAG;EACV,gBAAgB,EAAE,IAAI;EACtB,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,EAAE;EACX,MAAM,EAAE,cAAc;CAQzB;;AAhCL,AA2BY,kBA3BM,CAgBd,MAAM,CASF,KAAK,CAED,EAAE,CAAA;EACE,OAAO,EAAE,SAAS;CACrB",
+    "sources": [
+        "breaking-news-ticker-admin.scss"
+    ],
+    "names": [],
+    "file": "breaking-news-ticker-admin.css"
+}
